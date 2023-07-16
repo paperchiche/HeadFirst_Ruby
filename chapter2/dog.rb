@@ -30,3 +30,17 @@ class Dog
 
 end
 
+
+dog = Dog.new
+dog.name = "Rex"
+dog.age = 5
+dog.report_age
+dog.talk
+dog.move("home")
+
+second_dog = Dog.new
+second_dog.name = "Rex junior"
+second_dog.age = 1
+second_dog.report_age
+second_dog.talk
+second_dog.move("bed")
