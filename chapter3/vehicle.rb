@@ -20,3 +20,23 @@ class Vehicle
   end
 
 end
+
+class Car < Vehicle
+end
+
+class Truck < Vehicle
+end
+
+class Motorcycle < Vehicle
+end
+
+truck = Truck.new
+truck.accelerate
+truck.steer
+
+car = Car.new
+car.odometer = 11432
+car.gas_used = 366
+
+puts "Lifetime MPG:"
+puts car.mileage
