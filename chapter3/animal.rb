@@ -31,6 +31,9 @@ class Animal
 end
 
 class Dog < Animal
+  def to_s
+    "#{@name} the dog, age #{age}"
+  end
 end
 
 class Cat < Animal
@@ -64,3 +67,14 @@ polly.report_age
 fido.move("yard")
 whiskers.talk
 
+dillon = Armadillo.new
+dillon.name = "Dillon"
+dillon.move("burrow")
+
+lucy = Dog.new
+lucy.name = "Lucy"
+lucy.age = 4
+rex = Dog.new
+rex.name = "Rex"
+rex.age = 2
+puts lucy, rex
