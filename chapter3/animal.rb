@@ -34,9 +34,15 @@ class Dog < Animal
 end
 
 class Cat < Animal
+  def talk
+    puts "#{@name} says Meow!"
+  end
 end
 
 class Bird < Animal
+  def talk
+    puts "#{@name} says Chirp! Chirp!"
+  end
 end
 
 whiskers = Cat.new
