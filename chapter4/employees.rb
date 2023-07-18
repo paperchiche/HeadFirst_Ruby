@@ -1,12 +1,16 @@
 class Employee
 
-  attr_reader :name, :salary
+  attr_reader :name
 
   def name=(name)
     if name == ""
       raise "Name can't be blank!"
     end
     @name = name
+  end
+
+  def print_name
+    puts "Name: #{name}"
   end
 
   def salary=(salary)
@@ -16,19 +20,62 @@ class Employee
     @salary = salary
   end
 
-  def initialize(name = "Anonymous", salary = 0.0)
-    self.name = name
-    self.salary = salary
+end
+
+class SalariedEmployee < Employee
+
+  attr_reader :salary
+
+  def salary=(salary)
+    if salary < 0
+      raise "A salary of #{salary} isn't valid!"
+    end
+    @salary = salary
   end
 
   def print_pay_stub
-    puts "Name: #{@name}"
-    pay_for_period = (@salary / 365.0) * 14
-    formatted_pay = format("%.2f", pay_for_period)
-    puts "Pay this period: $#{formatted_pay}"
+    print_name
+    pay_for_period = (salary / 365.0) * 14
+    formatted_pay = format("$%.2f", pay_for_period)
+    puts "Pay This Period: #{formatted_pay}"
   end
 
 end
 
-amy = Employee.new("Amy Blake", 50000)
-amy.print_pay_stub
+class HourlyEmployee < Employee
+
+  attr_reader :hourly_wage, :hours_per_week
+
+  def hourly_wage=(hourly_wage)
+    if hourly_wage < 0
+      raise "An hourly wage of #{hourly_wage} isn't valid!"
+    end
+    @hourly_wage = hourly_wage
+  end
+
+  def hours_per_week=(hours_per_week)
+    if hours_per_week < 0
+      raise "#{hours_per_week} hours per week isn't valid!"
+    end
+    @hours_per_week = hours_per_week
+  end
+
+  def print_pay_stub
+    print_name
+    pay_for_period = hourly_wage * hours_per_week * 2
+    formatted_pay = format("$%.2f", pay_for_period)
+    puts "Pay This Period: #{formatted_pay}"
+  end
+
+end
+
+salaried_employee = SalariedEmployee.new
+salaried_employee.name = "Jane Doe"
+salaried_employee.salary = 50000
+salaried_employee.print_pay_stub
+
+hourly_employee = HourlyEmployee.new
+hourly_employee.name = "John Smith"
+hourly_employee.hourly_wage = 14.97
+hourly_employee.hours_per_week = 30
+hourly_employee.print_pay_stub
