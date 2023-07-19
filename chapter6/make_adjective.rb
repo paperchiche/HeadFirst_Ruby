@@ -4,4 +4,12 @@ File.open("C:/GitHub/HeadFirst_Ruby/HeadFirst_Ruby/chapter6/reviews.txt") do |re
   lines = review_file.readlines
 end
 
-puts lines
+relevant_lines = []
+
+lines.each do |line|
+  if line.include?("Truncated")
+    relevant_lines << line
+  end
+end
+
+puts relevant_lines
