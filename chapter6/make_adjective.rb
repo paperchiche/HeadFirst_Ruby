@@ -15,10 +15,6 @@ def find_adjective(string)
   words[index + 1]
 end
 
-adjectives = []
-
-reviews.each do |review|
-  adjectives << find_adjective(review)
-end
+adjectives = reviews.map { |review| find_adjective(review) }
 
 puts adjectives
