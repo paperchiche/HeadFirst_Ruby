@@ -4,8 +4,14 @@ class Steak
 
   attr_accessor :grade
 
-  def > (other)
-    GRADE_SCORES[grade] > GRADE_SCORES[other.grade]
+  def <=> (other)
+    if GRADE_SCORES[self.grade] < GRADE_SCORES[other.grade]
+      return -1
+    elsif GRADE_SCORES[self.grade] == GRADE_SCORES[other.grade]
+      return 0
+    else
+      return 1
+    end
   end
 
 end
@@ -17,7 +23,5 @@ second_steak = Steak.new
 second_steak.grade = "Choice"
 
 
-grade_scores = {"Prime" => 3, "Choice" => 2, "Select" => 1}
-puts grade_scores["Prime"]
-puts grade_scores["Choice"]
-puts grade_scores["Prime"] > grade_scores["Select"]
+puts fist_steak <=> second_steak
+puts second_steak <=> fist_steak
