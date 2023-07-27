@@ -11,3 +11,10 @@ class WordSplitter
   end
 
 end
+
+splitter = WordSplitter.new
+splitter.string = "odin dva tri"
+
+splitter.each do |word|
+  puts word
+end
