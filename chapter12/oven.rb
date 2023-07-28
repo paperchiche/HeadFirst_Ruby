@@ -25,10 +25,14 @@ class SmallOven
 end
 
 
-dinner = ['turkey', 'casserole', 'pie']
+dinner = ['turkey', nil, 'pie']
 oven = SmallOven.new
-oven.turn_off
+oven.turn_on
 dinner.each do |item|
-  oven.contents = item
-  puts "Serving #{oven.bake}."
+  begin
+    oven.contents = item
+    puts "Serving #{oven.bake}."
+  rescue
+    puts "There's nothing in the oven!"
+  end
 end
