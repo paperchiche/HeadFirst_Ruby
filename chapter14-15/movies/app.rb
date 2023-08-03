@@ -12,3 +12,8 @@ get('/movies') do
   @movies[2] = "Terminator 2"
   erb :index
 end
+
+
+get('/movies/new') do
+  erb :new
+end
